@@ -1,31 +1,41 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>War Card Game</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&display=swap"
-      rel="stylesheet"
-    />
+
     <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
-    <div class="top">
-      <button id="new-deck">New Deck</button>
-      <p id="remaining"></p>
-    </div>
+    <header>
+      <h1>War</h1>
+      <p id="status">Click New Game to start</p>
+    </header>
 
-    <h2 id="header">Game of War</h2>
-    <h3 id="computer-score">Computer score: 0</h3>
-    <div id="cards">
-      <div class="card-slot"></div>
-      <div class="card-slot"></div>
-    </div>
-    <h3 id="my-score">My Score: 0</h3>
-    <button id="draw-cards" class="draw">Draw</button>
+    <main>
+      <section aria-label="Scoreboard" class="scoreboard">
+        <p>Player: <span id="player-score">0</span></p>
+        <p>Computer: <span id="computer-score">0</span></p>
+        <p>Cards remaining: <span id="remaining">-</span></p>
+      </section>
+
+      <section class="battlefield" aria-label="Battlefield">
+        <div>
+          <h2>Player</h2>
+          <div id="player-card" aria-label="Player card slot"></div>
+        </div>
+        <div>
+          <h2>Computer</h2>
+          <div id="computer-card" aria-label="Computer card slot"></div>
+        </div>
+      </section>
+
+      <section class="controls" aria-label="Controls">
+        <button id="new-game-btn" type="button">New Game</button>
+        <button id="draw-btn" type="button" disabled>Draw</button>
+      </section>
+    </main>
 
     <script src="./app.js"></script>
   </body>

@@ -1,0 +1,103 @@
+:root {
+  --bg: #0b1220;
+  --surface: #111a2e;
+  --text: #e7eaf0;
+  --muted: #a7b0c0;
+  --accent: #7c5cff;
+  --border: rgba(231, 234, 240, 0.14);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.5;
+}
+
+main {
+  max-width: 50rem;
+  margin: 2.5rem auto;
+  padding: 1.25rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 0.5rem;
+}
+
+header {
+  text-align: center;
+  margin-top: 2.5rem;
+}
+
+section {
+  margin-bottom: 1.875rem;
+}
+
+.scoreboard {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.125rem;
+}
+
+.battlefield {
+  display: flex;
+  justify-content: space-between;
+  gap: 2.5rem;
+}
+
+.battlefield > div {
+  flex: 1;
+}
+
+#player-card,
+#computer-card {
+  margin-top: 0.75rem;
+  min-height: 13.75rem;
+  border: 1px dashed var(--border);
+  border-radius: 0.625rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#player-card img,
+#computer-card img {
+  max-height: 100%;
+  width: auto;
+  display: block;
+}
+
+.controls {
+  display: flex;
+  gap: 0.75rem;
+}
+
+button {
+  font: inherit;
+  padding: 0.625rem 0.875rem;
+  border-radius: 0.5rem;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text);
+  cursor: pointer;
+}
+
+button:hover {
+    border-color: var(--accent);
+}
+
+button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+button:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+}
