@@ -2,8 +2,8 @@ const statusEl = document.getElementById('status');
 const playerScoreEl = document.getElementById('player-score');
 const computerScoreEl = document.getElementById('computer-score');
 const remainingEl = document.getElementById('remaining');
-const playerCardSlot = document.getElementById('player-card');
-const computerCardSlot = document.getElementById('computer-card');
+const playerCardSlotEl = document.getElementById('player-card');
+const computerCardSlotEl = document.getElementById('computer-card');
 const newGameBtn = document.getElementById('new-game-btn');
 const drawBtn = document.getElementById('draw-btn');
 
@@ -27,7 +27,7 @@ const handleNewGameClick = async () => {
   );
 
   if (!response.ok) {
-    throw new Error('Failed to fetch data.');
+    throw new Error('Request failed.');
   }
 
   const data = await response.json();
@@ -37,14 +37,17 @@ const handleNewGameClick = async () => {
 
   playerScore = 0;
   computerScore = 0;
+
   playerScoreEl.textContent = playerScore;
   computerScoreEl.textContent = computerScore;
 
-  playerCardSlot.innerHTML = '';
-  computerCardSlot.innerHTML = '';
+  playerCardSlotEl.innerHTML = '';
+  computerCardSlotEl.innerHTML = '';
 
   drawBtn.disabled = false;
+
   statusEl.textContent = 'Deck ready. Click Draw!';
+  console.log(data);
 };
 
 const handleDrawClick = async () => {
@@ -60,12 +63,12 @@ const handleDrawClick = async () => {
 
   const data = await response.json();
 
-  playerCardSlot.innerHTML = `
-    <img src='${data.cards[0].image}' alt='Player card' />
+  playerCardSlotEl.innerHTML = `
+    <img src=${data.cards[0].image} alt='Player Card' />
   `;
 
-  computerCardSlot.innerHTML = `
-    <img src='${data.cards[1].image}' alt='computer card' />
+  computerCardSlotEl.innerHTML = `
+    <img src=${data.cards[1].image} alt='Computer Card' />
   `;
 
   const playerCard = data.cards[0];
@@ -99,6 +102,7 @@ const handleDrawClick = async () => {
     } else {
       statusEl.textContent = "Game over! It's a tie!";
     }
+
     return;
   }
 
