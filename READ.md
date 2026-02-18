@@ -19,3 +19,7 @@ A modern implementation of the classic **War** card game built with vanilla Java
 ## 🧠 Development Notes
 
 Built to strengthen core JavaScript fundamentals and async programming. I regularly create practice files alongside projects to reinforce concepts and support continuous learning.
+
+## 🔗 Live Demo
+
+https://jprobussr.github.io/async-war-card-game/
